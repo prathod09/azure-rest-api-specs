@@ -110,11 +110,7 @@
       "get": {
         "operationId": "HSMSecurityDomain_DownloadPending",
         "description": "Retrieves the Security Domain download operation status",
-        "parameters": [
-          {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "The request has succeeded.",
@@ -170,9 +166,6 @@
         "description": "Restore the provided Security Domain.",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
-          },
-          {
             "name": "security_domain",
             "in": "body",
             "description": "The Security Domain to be restored.",
@@ -225,11 +218,7 @@
       "get": {
         "operationId": "HSMSecurityDomain_UploadPending",
         "description": "Get Security Domain upload operation status",
-        "parameters": [
-          {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "The request has succeeded.",
