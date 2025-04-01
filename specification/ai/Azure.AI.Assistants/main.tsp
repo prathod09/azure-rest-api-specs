@@ -34,13 +34,20 @@ namespace Azure.AI {
 )
 @service(#{ title: "Azure AI" })
 @server(
-  "{endpoint}",
+  "{endpoint}/agents/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{projectName}",
   "Azure AI",
   {
-    @doc("""
-      Project endpoint in the form of: https://<aiservices-id>.services.ai.azure.com/api/projects/<project-name>
-      """)
-    endpoint: url,
+    @doc("The Azure AI Foundry project endpoint, in the form `https://<azure-region>.api.azureml.ms` or `https://<private-link-guid>.<azure-region>.api.azureml.ms`, where <azure-region> is the Azure region where the project is deployed (e.g. westus) and <private-link-guid> is the GUID of the Enterprise private link.")
+    endpoint: string,
+
+    @doc("The Azure subscription ID.")
+    subscriptionId: string,
+
+    @doc("The name of the Azure Resource Group.")
+    resourceGroupName: string,
+
+    @doc("The Azure AI Foundry project name.")
+    projectName: string,
   }
 )
 @versioned(Versions)
@@ -49,6 +56,6 @@ namespace Azure.AI.Assistants {
   enum Versions {
     @doc("Azure AI API version 2025-05-01-preview.")
     @useDependency(Azure.Core.Versions.v1_0_Preview_2)
-    `latest`,
+    latest,
   }
 }
